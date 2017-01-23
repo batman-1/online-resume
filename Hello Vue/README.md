@@ -6,4 +6,4 @@ npm i
 ```
 webpack
 ```
-open page.html
+- open page.html
