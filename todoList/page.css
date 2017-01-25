@@ -1,0 +1,87 @@
+html,body,ol,li{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color: #fafafa;
+}
+ol,li {
+	list-style-type: none;
+}
+#app{
+	margin: 0 auto;
+	margin-top: 40px;
+	max-width: 1024px;
+}
+.icon-basictodolistpencil {
+  text-align: center;
+  font-size: 100px !important; 
+  color: #ccc;
+  margin-bottom: 30px;
+}
+#input-box {
+	border: 1px solid #ccc;
+	width: 900px;
+	height: 50px;
+	padding: 10px;
+	border-radius: 15px;
+	outline: none;
+	box-shadow: 2px 2px 6px 2px #ccc ;
+	color: #666;
+	font-size: 18px;
+	display: block;
+	margin: 0 auto;
+}
+
+.todos{
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+.todos li {
+	width: 100%;
+	padding: 5px 0;
+	display: inline-block;
+	font-size: 20px;
+	border-radius: 10px;
+	padding: 5px 20px;
+	box-sizing: border-box;
+}
+.todos li:hover{
+	background-color: #eee;
+}
+.todos .todos-itme{
+	position: relative;
+	top: 4px;
+	padding-left: 10px;
+	color: #666;
+	font-weight: bold;
+}
+.checkbox {
+ width: 19px;
+ height: 25px;
+ display: block;
+ clear: left;
+ float: left;
+}
+.view-right{
+	float: right;
+	font-size: 14px;
+	color: #666;
+	position: relative;
+	top: 6px;
+}
+.created-date{
+	font-weight: bold;
+	padding-right: 20px;
+}
+.btn-close{
+	border-radius: 50px;
+	border: none;
+	background-color: #F93D3D;
+	color: #fafafa;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.btn-close:hover{
+	background-color: #D24141
+}
