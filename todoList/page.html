@@ -15,9 +15,9 @@
      <ol class="todos">
         <li v-for="todo in todoList">
           	<input type="checkbox" class="checkbox" v-model='todo.done'>
-         	<span class="todos-itme">{{ todo.title }}</span>
+         	<span class="todos-itme" v-cloak>{{ todo.title }}</span>
 	        <div class="view-right">
-	         	<span class="created-time">{{ todo.createdAt }}</span>
+	         	<span class="created-date" v-cloak>{{ todo.createdAt }}</span>
 		        <span v-if="todo.done">已完成</span>
 		        <span v-else>未完成</span>
 		        <button class="btn-close" @click='removeTodo( todo )'>一</button>

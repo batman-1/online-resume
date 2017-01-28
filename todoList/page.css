@@ -68,7 +68,7 @@ ol,li {
 	font-size: 14px;
 	color: #666;
 	position: relative;
-	top: 6px;
+	top: 7px;
 }
 .created-date{
 	font-weight: bold;
@@ -84,4 +84,7 @@ ol,li {
 }
 .btn-close:hover{
 	background-color: #D24141
+}
+[v-cloak] {
+  display: none;
 }
