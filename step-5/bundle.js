@@ -76,34 +76,18 @@
 	    currentUser: null
 	  },
 
-	  // created: function(){
-	  // 	window.onbeforeunload = ()=>{
-	  // 		let dataString = JSON.stringify(this.todoList);
-	  // 		window.localStorage.setItem('mytodos', dataString);
-	  // 	};
-	  // 	let oldDate = JSON.parse(window.localStorage.getItem('mytodos'));
-	  // 	this.todoList = oldDate || [];
-	  //   this.currentUser = this.getCurrentUser();
-	  // },
+	  created: function created() {
+	    var _this = this;
+
+	    window.onbeforeunload = function () {
+	      var dataString = JSON.stringify(_this.todoList);
+	      window.localStorage.setItem('mytodos', dataString);
+	    };
+	    var oldDate = JSON.parse(window.localStorage.getItem('mytodos'));
+	    this.todoList = oldDate || [];
+	  },
 
 	  methods: {
-	    saveTodo: function saveTodo() {
-	      var dataString = JSON.stringify(this.todoList);
-	      var AVTodos = _leancloudStorage2.default.Object.extend('AllTodos');
-	      var avTodos = new AVTodos();
-	      var acl = new _leancloudStorage2.default.ACL();
-	      acl.setReadAccess(_leancloudStorage2.default.User.current(), true);
-	      acl.setWriteAccess(_leancloudStorage2.default.User.current(), true);
-
-	      avTodos.set('content', dataString);
-	      avTodos.setACL(acl);
-	      avTodos.save().then(function (todo) {
-	        alert('保存成功');
-	      }, function (error) {
-	        alert('保存失败');
-	      });
-	    },
-
 	    addTodo: function addTodo() {
 	      this.todoList.push({
 	        title: this.newTodo,
@@ -111,7 +95,6 @@
 	        done: false
 	      });
 	      this.newTodo = '';
-	      this.saveTodo();
 	    },
 
 	    getTime: function getTime() {
@@ -123,18 +106,17 @@
 	    removeTodo: function removeTodo(todo) {
 	      var index = this.todoList.indexOf(todo);
 	      this.todoList.splice(index, 1);
-	      this.saveTodo();
 	    },
 
 	    signUp: function signUp() {
-	      var _this = this;
+	      var _this2 = this;
 
 	      var user = new _leancloudStorage2.default.User();
 	      user.setUsername(this.formData.username);
 	      user.setPassword(this.formData.password);
 	      user.signUp().then(function (loginedUser) {
 	        console.log(loginedUser);
-	        _this.currentUser = _this.getCurrentUser();
+	        _this2.currentUser = _this2.getCurrentUser();
 	        alert('注册成功');
 	      }, function (error) {
 	        alert('注册失败');
@@ -142,11 +124,11 @@
 	    },
 
 	    login: function login() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      _leancloudStorage2.default.User.logIn(this.formData.username, this.formData.password).then(function (loginedUser) {
 	        console.log(loginedUser);
-	        _this2.currentUser = _this2.getCurrentUser();
+	        _this3.currentUser = _this3.getCurrentUser();
 	      }, function (error) {
 	        alert('登录失败');
 	      });

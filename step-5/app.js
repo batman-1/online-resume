@@ -21,34 +21,16 @@ var app = new Vue({
     currentUser: null
   },
 
-  // created: function(){
-  // 	window.onbeforeunload = ()=>{
-  // 		let dataString = JSON.stringify(this.todoList);
-  // 		window.localStorage.setItem('mytodos', dataString);
-  // 	};
-  // 	let oldDate = JSON.parse(window.localStorage.getItem('mytodos'));
-  // 	this.todoList = oldDate || [];
-  //   this.currentUser = this.getCurrentUser();
-  // },
+  created: function(){
+  	window.onbeforeunload = ()=>{
+  		let dataString = JSON.stringify(this.todoList);
+  		window.localStorage.setItem('mytodos', dataString);
+  	};
+  	let oldDate = JSON.parse(window.localStorage.getItem('mytodos'));
+  	this.todoList = oldDate || [];
+  },
 
   methods: {
-    saveTodo: function(){
-      let dataString = JSON.stringify(this.todoList);
-      var AVTodos = AV.Object.extend('AllTodos');
-      var avTodos = new AVTodos();
-      var acl = new AV.ACL();
-      acl.setReadAccess(AV.User.current(),true);
-      acl.setWriteAccess(AV.User.current(),true);
-
-      avTodos.set('content',dataString);
-      avTodos.setACL(acl);
-      avTodos.save().then(function(todo){
-        alert('保存成功');
-      },function(error){
-        alert('保存失败');
-      });
-    },
-
   	addTodo: function(){
   		this.todoList.push({
   			title: this.newTodo,
@@ -56,7 +38,6 @@ var app = new Vue({
   			done: false
   		})
   		this.newTodo = '';
-      this.saveTodo();
   	},
 
   	getTime: function(){
@@ -68,7 +49,6 @@ var app = new Vue({
     removeTodo: function(todo){
     	let index = this.todoList.indexOf(todo);
     	this.todoList.splice(index,1);
-      this.saveTodo();
     },
 
     signUp: function(){
