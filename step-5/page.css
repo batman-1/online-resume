@@ -4,6 +4,7 @@ html,body,ol,li{
 }
 body{
 	background-color: #fafafa;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 }
 ol,li {
 	list-style-type: none;
@@ -87,4 +88,74 @@ ol,li {
 }
 [v-cloak] {
   display: none;
+}
+
+/*登录注册框*/
+#signInAndSignUp{
+	position: absolute;
+	top: 48%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 10px 15px 2px 15px;
+	background-color: #fff;
+	font-weight: bold;
+}
+#signInAndSignUp .wrap {
+	text-align: center;
+	color: #666;
+	margin-bottom: 10px;
+}
+#signInAndSignUp .wrap .todoList-title {
+	padding: 5px 0;
+	margin: 0;
+}
+#signInAndSignUp .wrap label{
+	text-align: center;
+	font-size: 18px;
+	cursor: pointer;
+	color: #ccc;
+}
+#signInAndSignUp .wrap label.underline{
+	padding-bottom: 5px; 
+	border-bottom: 1px solid #3CBBBC;
+	color: #495F5F;
+	transition: all 0.3s;
+}
+#signInAndSignUp .wrap input{
+	display: none;
+}
+#signInAndSignUp .formRow{
+	padding: 10px 0;
+}
+#signInAndSignUp .formActions{
+	text-align: center;
+}
+#signInAndSignUp .formActions input{
+	border: none;
+	background-color: #333;
+	color: #fafafa;
+	border-radius: 4px;
+	font-weight: bold;
+	font-size: 18px;
+	cursor: pointer;
+	padding: 10px 10px;
+	margin-top: 10px;
+	outline: none;
+}
+#signInAndSignUp .formActions input:active{
+	background-color: #666;
+	color: #fff;
+}
+#signInAndSignUp .formRow input{
+	border-radius: 4px;
+	width: 220px;
+	height: 30px;
+	color: #333;
+	padding: 2px 10px;
+	background-color: #eee;
+	outline: none;
+	font-size: 18px;
 }

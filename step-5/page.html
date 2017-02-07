@@ -7,19 +7,20 @@
  </style>
   </head>
   <body>
-   <div id="app">
+   <div id="app" v-cloak>
      <section id="signInAndSignUp" v-if="!currentUser">
-       <div>
-         <label><input type="radio" name="type" value="signUp" v-model="actionType">注册</label>
-         <label><input type="radio" name="type" value="login" v-model="actionType">登入</label>
+       <div class="wrap">
+         <h1 class="todoList-title">Todo List</h1>
+         <label  v-bind:class="{underline: actionType==='signUp'}"><input type="radio" name="type" value="signUp" v-model="actionType">注册</label>
+         <label  v-bind:class="{underline: actionType==='login'}"><input type="radio" name="type" value="login" v-model="actionType">登入</label>
        </div>
        <div class="signUp" v-if="actionType=='signUp'">
          <form @submit.prevent="signUp">
            <div class="formRow">
-             用户名<input type="text" v-model="formData.username">
+             用户名　<input type="text" v-model="formData.username">
            </div>
            <div class="formRow">
-             密　码<input type="password" v-model="formData.password">
+             密　码　<input type="password" v-model="formData.password">
            </div>
            <div class="formActions">
              <input type="submit" value="注册">
@@ -29,10 +30,10 @@
        <div class="login" v-if="actionType=='login'">
          <form @submit.prevent="login">
            <div class="formRow">
-             用户名<input type="text" v-model="formData.username">
+             用户名　<input type="text" v-model="formData.username">
            </div>
            <div class="formRow">
-             密　码<input type="password" v-model="formData.password">
+             密　码　<input type="password" v-model="formData.password">
            </div>
            <div class="formActions">
              <input type="submit" value="登入">
@@ -49,10 +50,10 @@
         </div>
         <ol class="todos">
             <li v-for="todo in todoList">
-              <input type="checkbox" class="checkbox" v-model='todo.done'>
-              <span class="todos-itme" v-cloak>{{ todo.title }}</span>
+              <input type="checkbox" class="checkbox" v-model='todo.done' @change="saveOrUpdateTodos">
+              <span class="todos-itme">{{ todo.title }}</span>
               <div class="view-right">
-                <span class="created-date" v-cloak>{{ todo.createdAt }}</span>
+                <span class="created-date">{{ todo.createdAt }}</span>
                 <span v-if="todo.done">已完成</span>
                 <span v-else>未完成</span>
                 <button class="btn-close" @click='removeTodo( todo )'>一</button>

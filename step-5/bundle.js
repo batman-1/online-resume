@@ -79,15 +79,58 @@
 	  created: function created() {
 	    var _this = this;
 
-	    window.onbeforeunload = function () {
-	      var dataString = JSON.stringify(_this.todoList);
-	      window.localStorage.setItem('mytodos', dataString);
+	    this.currentUser = this.getCurrentUser();
+	    if (this.currentUser) {
+	      var query = new _leancloudStorage2.default.Query('AllTodos');
+	      query.find().then(function (todos) {
+	        var avAllTodos = todos[0];
+	        var id = avAllTodos.id;
+	        _this.todoList = JSON.parse(avAllTodos.attributes.content);
+	        _this.todoList.id = id;
+	      }, function (error) {
+	        console.error(error);
+	      });
 	    };
-	    var oldDate = JSON.parse(window.localStorage.getItem('mytodos'));
-	    this.todoList = oldDate || [];
 	  },
 
 	  methods: {
+	    updateTodos: function updateTodos() {
+	      var dataString = JSON.stringify(this.todoList);
+	      var avTodos = _leancloudStorage2.default.Object.createWithoutData('AllTodos', this.todoList.id);
+	      avTodos.set('content', dataString);
+	      avTodos.save().then(function () {
+	        console.log('更新成功');
+	      }, function (error) {
+	        console.error(error);
+	      });
+	    },
+
+	    saveTodo: function saveTodo() {
+	      var dataString = JSON.stringify(this.todoList);
+	      var AVTodos = _leancloudStorage2.default.Object.extend('AllTodos');
+	      var avTodos = new AVTodos();
+	      var acl = new _leancloudStorage2.default.ACL();
+	      acl.setReadAccess(_leancloudStorage2.default.User.current(), true);
+	      acl.setWriteAccess(_leancloudStorage2.default.User.current(), true);
+
+	      avTodos.set('content', dataString);
+	      avTodos.setACL(acl);
+	      avTodos.save().then(function (todo) {
+	        this.todoList.id = todo.id;
+	        console.log('保存成功');
+	      }, function (error) {
+	        alert('保存失败');
+	      });
+	    },
+
+	    saveOrUpdateTodos: function saveOrUpdateTodos() {
+	      if (this.todoList.id) {
+	        this.updateTodos();
+	      } else {
+	        this.saveTodo();
+	      }
+	    },
+
 	    addTodo: function addTodo() {
 	      this.todoList.push({
 	        title: this.newTodo,
@@ -95,6 +138,7 @@
 	        done: false
 	      });
 	      this.newTodo = '';
+	      this.saveOrUpdateTodos();
 	    },
 
 	    getTime: function getTime() {
@@ -106,6 +150,7 @@
 	    removeTodo: function removeTodo(todo) {
 	      var index = this.todoList.indexOf(todo);
 	      this.todoList.splice(index, 1);
+	      this.saveOrUpdateTodos();
 	    },
 
 	    signUp: function signUp() {
@@ -129,6 +174,7 @@
 	      _leancloudStorage2.default.User.logIn(this.formData.username, this.formData.password).then(function (loginedUser) {
 	        console.log(loginedUser);
 	        _this3.currentUser = _this3.getCurrentUser();
+	        window.location.reload();
 	      }, function (error) {
 	        alert('登录失败');
 	      });
@@ -141,13 +187,16 @@
 	    },
 
 	    getCurrentUser: function getCurrentUser() {
-	      // 👈
-	      var _AV$User$current = _leancloudStorage2.default.User.current(),
-	          id = _AV$User$current.id,
-	          createdAt = _AV$User$current.createdAt,
-	          username = _AV$User$current.attributes.username;
+	      var current = _leancloudStorage2.default.User.current();
+	      if (current) {
+	        var id = current.id,
+	            createdAt = current.createdAt,
+	            username = current.attributes.username;
 
-	      return { id: id, username: username, createdAt: createdAt };
+	        return { id: id, username: username, createdAt: createdAt };
+	      } else {
+	        return null;
+	      }
 	    }
 	  }
 	});
