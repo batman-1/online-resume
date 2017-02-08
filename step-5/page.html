@@ -11,8 +11,8 @@
      <section id="signInAndSignUp" v-if="!currentUser">
        <div class="wrap">
          <h1 class="todoList-title">Todo List</h1>
-         <label  v-bind:class="{underline: actionType==='signUp'}"><input type="radio" name="type" value="signUp" v-model="actionType">注册</label>
          <label  v-bind:class="{underline: actionType==='login'}"><input type="radio" name="type" value="login" v-model="actionType">登入</label>
+         <label  v-bind:class="{underline: actionType==='signUp'}"><input type="radio" name="type" value="signUp" v-model="actionType">注册</label>
        </div>
        <div class="signUp" v-if="actionType=='signUp'">
          <form @submit.prevent="signUp">

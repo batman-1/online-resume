@@ -81,8 +81,8 @@ var app = new Vue({
   			createdAt: this.getTime() ,
   			done: false
   		})
-  		this.newTodo = '';
       this.saveOrUpdateTodos();
+  		this.newTodo = '';  
   	},
 
   	getTime: function(){
