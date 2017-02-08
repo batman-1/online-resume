@@ -11,7 +11,7 @@ AV.init({
 var app = new Vue({
   el: '#app',
   data: {
-    actionType: 'signUp',
+    actionType: 'login',
     formData: {
       username: '',
       password: ''
