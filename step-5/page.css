@@ -82,6 +82,7 @@ ol,li {
 	color: #fafafa;
 	cursor: pointer;
 	margin-left: 10px;
+	outline: none;
 }
 .btn-close:hover{
 	background-color: #D24141
