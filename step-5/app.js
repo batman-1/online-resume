@@ -27,6 +27,7 @@ var app = new Vue({
       var query = new AV.Query('AllTodos');
       query.find()
         .then((todos)=>{
+           console.log(todos)
           let avAllTodos = todos[0]
           let id = avAllTodos.id
           this.todoList = JSON.parse(avAllTodos.attributes.content)

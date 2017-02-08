@@ -66,7 +66,7 @@
 	var app = new _vue2.default({
 	  el: '#app',
 	  data: {
-	    actionType: 'signUp',
+	    actionType: 'login',
 	    formData: {
 	      username: '',
 	      password: ''
@@ -83,6 +83,7 @@
 	    if (this.currentUser) {
 	      var query = new _leancloudStorage2.default.Query('AllTodos');
 	      query.find().then(function (todos) {
+	        console.log(todos);
 	        var avAllTodos = todos[0];
 	        var id = avAllTodos.id;
 	        _this.todoList = JSON.parse(avAllTodos.attributes.content);
@@ -137,8 +138,8 @@
 	        createdAt: this.getTime(),
 	        done: false
 	      });
-	      this.newTodo = '';
 	      this.saveOrUpdateTodos();
+	      this.newTodo = '';
 	    },
 
 	    getTime: function getTime() {
