@@ -48,14 +48,15 @@ a{
 }
 #header-shortcut .mycityicon-wrap{
 	padding-left: 7px;
-    padding-right: 7px;	
+    padding-right: 8px;	
 }
 .shortcut-right {
 	float: right;
+	margin-right: 6px; 
 }
 #header-shortcut .dt {
 	padding-left: 7px;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 #header-shortcut a.hover{
 	color: #999;
@@ -74,7 +75,7 @@ a{
 	margin: 11px 5px 0 5px;
 }
 #header-shortcut .icon-jiantou-copy1{
-	font-size: 18px;
+	font-size: 16px;
 	position: relative;
 	top: 3px;
 }
@@ -119,4 +120,48 @@ a{
 #ttbar-mycity .item a:hover{
 	background-color: #eee;
 	color: #c81623;
+}
+/*mobile JD*/
+.jd-mobile-qrcode{
+	position: relative;
+}
+.mobile-static {
+	position: absolute;
+    left: 3px;
+    width: 66px;
+    height: 66px;
+    border: 1px solid #cfcfcf;
+	border-top: none;
+}
+.mobile-static-qrcode::before{
+	content: '';
+	width: 0;
+	height: 0;
+	font-size: 0;
+	display: block;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #e4e4e4 #e4e4e4 #f6f6f6;
+	position: absolute;
+	top: -9px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.mobile-static-qrcode{
+	width: 60px;
+	height: 60px;
+    margin: 3px auto;
+	background:#f6f6f6 url(../../image/mobile_qrcode.jpg) 50% 50% no-repeat;
+}
+#dropdown-qrcode{
+	width: 190px;
+	border: 1px solid #cfcfcf;
+	border-bottom: 3px solid #60575a;
+	border-top: none;
+	z-index: 20;
+	background: #fff;
+	position: absolute;
+    left: auto;
+    right: -6px;
+    top: 30px;
 }
