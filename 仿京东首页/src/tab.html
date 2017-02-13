@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        var baseConfig = {
+            tabList:[
+                {
+                    tabname:'tab1',
+                    tabContent: '渲染tab1'
+                }
+            ]，
+            indexTab:0
+        }
+
+        function TabFactory(){
+            
+        }
+
+        TabFactory.prototype.render=function(container){
+			debugger;
+			var tabList = this.tabConfig['tabList']
+			//渲染头部
+			var headerHtml = tabList.map(function(tab){
+				var tabname  = tab.tabname;
+				return [
+				'<div class="tab-item">',
+				tabname,
+				'</div>'].join('')
+			}).join('');
+			var bodyHtml = '<div class="tab-body"></div>';
+			var finalHtml =[
+				'<div class="tab-container">',
+				headerHtml,
+				'</div>',
+				bodyHtml
+			].join('') ;
+			//渲染内容区
+			container.innerHTML = finalHtml
+		}
+
+    </script>
+</body>
+</html>

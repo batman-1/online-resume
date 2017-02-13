@@ -1,0 +1,122 @@
+/*公共样式*/
+body{
+	font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+	color: #666;
+    background-color: #f6f6f6;	
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+*::after,*::before{
+	box-sizing: border-box;
+}
+ul,li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+.layout{
+	width: 1190px;
+	margin: 0 auto;
+}
+
+/*头部快捷导航*/
+#header-shortcut{
+	border-bottom: 1px solid #ddd;
+	background-color: #e3e4e5;
+	box-sizing: border-box;
+	height: 30px;
+	line-height: 30px;
+	color: #999;
+}
+.icon-zuobiao{
+	color: #f10215;
+	font-size: 14px !important;
+}
+#header-shortcut li{
+	float: left;
+}
+.shortcut-left {
+	float: left;
+}
+.shortcut-left li{
+	height: 30px;
+	margin-left: 200px;
+}
+#header-shortcut .mycityicon-wrap{
+	padding-left: 7px;
+    padding-right: 7px;	
+}
+.shortcut-right {
+	float: right;
+}
+#header-shortcut .dt {
+	padding-left: 7px;
+    padding-right: 5px;
+}
+#header-shortcut a.hover{
+	color: #999;
+}
+#header-shortcut .hover:hover{
+	color: #c81623;
+}
+#header-shortcut .signup{
+	color: #f10215;
+}
+#header-shortcut .spacer{
+	width: 1px;
+	overflow: hidden;
+	height: 10px;
+	background-color: #ccc;
+	margin: 11px 5px 0 5px;
+}
+#header-shortcut .icon-jiantou-copy1{
+	font-size: 18px;
+	position: relative;
+	top: 3px;
+}
+/*dropdown*/
+#header-shortcut .dropdown{
+	position: relative;
+}
+#header-shortcut .dropdown:hover{
+	background-color: #fff;
+}
+#ttbar-mycity .dropdown-layer{
+	position: absolute;
+	left: -1px;
+	top: 30px;
+	width: 322px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: #fff;
+	padding: 8px;
+}
+#ttbar-mycity .dropdown-layer.hide{
+	display: none;
+}
+#ttbar-mycity .item{
+	float:left;
+	width: 60px;
+	padding: 2px 0;
+	margin-left: 8px;
+	margin-right: -8px;
+}
+#ttbar-mycity .item a{
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 8px;
+	color: #999;
+}
+#ttbar-mycity .item a.active{
+	background-color: #f10215 !important;
+	color: #fff !important;
+}
+#ttbar-mycity .item a:hover{
+	background-color: #eee;
+	color: #c81623;
+}
