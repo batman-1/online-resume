@@ -1,0 +1,17 @@
+{
+  "name": "JD首页",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "requirejs": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xianyu",
+  "license": "ISC",
+  "devDependencies": {
+    "requirejs": "^2.3.2"
+  }
+}
