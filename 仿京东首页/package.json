@@ -1,17 +1,14 @@
 {
-  "name": "JD首页",
+  "name": "xianyu-jd",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "requirejs": "^2.3.2"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "xianyu",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "requirejs": "^2.3.2"
   }
 }
