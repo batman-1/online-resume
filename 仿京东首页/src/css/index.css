@@ -610,6 +610,24 @@ h1.logo-tit{
 	width: 790px;
 	background-color: brown;
 }
+.silder{
+
+}
+.silder-main{
+	position: relative;
+	margin-bottom: 10px;
+	height: 340px;
+}
+.silder-list,.silder-item,.silder-item-lk{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.silder-extend{
+
+}
 /*screen-out right*/
 .screen-col3{
 	float: right;
