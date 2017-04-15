@@ -624,7 +624,28 @@ h1.logo-tit{
 	height: 100%;
 	overflow: hidden;
 }
-
+.silder-bullet{
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	bottom: 20px;
+	border-radius: 12px;
+	background-color: hsla(0,0%,100%,.3);
+	padding: 4px 8px;
+	font-size: 0;
+	transform: translateX(-50%)
+}
+.silder-bullet-btn{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 100%;
+	background-color: #fff;
+	margin-right: 10px;
+}
+.silder-bullet-btn-active{
+	background-color: #db192a;
+}
 .silder-extend{
 
 }
