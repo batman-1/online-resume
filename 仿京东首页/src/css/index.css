@@ -646,6 +646,26 @@ h1.logo-tit{
 .silder-bullet-btn-active{
 	background-color: #db192a;
 }
+.silder-control{
+	width: 30px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	background-color: rgba(0,0,0,.1); 
+	margin-top: -30px;
+}
+.silder-control-pre{
+	left: 0;
+}
+.silder-control-next{
+	right: 0;
+}
+.silder-control:hover{
+	background-color: rgba(0,0,0,.6);
+}
 .silder-extend{
 
 }
